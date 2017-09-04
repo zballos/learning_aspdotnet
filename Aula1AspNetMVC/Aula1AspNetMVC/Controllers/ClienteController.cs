@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Aula1AspNetMVC.Context;
 using Aula1AspNetMVC.Models;
 
 namespace Aula1AspNetMVC.Controllers
@@ -12,13 +13,7 @@ namespace Aula1AspNetMVC.Controllers
         // GET: Cliente
         public ActionResult Index()
         {
-            var cliente = new Cliente()
-            {
-                Nome = "ASP",
-                SobreNome = "Net",
-                DataCadastro = DateTime.Now,
-                Id = 1
-            };
+            var cliente = new Aula1Context().Cliente.SingleOrDefault(c => c.Id == 1);
 
             ViewBag.Cliente = cliente; // versão nova
             //ViewData["Cliente"] = cliente; // versão antiga, pouco usada
