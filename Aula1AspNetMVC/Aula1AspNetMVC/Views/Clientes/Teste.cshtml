@@ -1,0 +1,76 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<Aula1AspNetMVC.Models.Cliente>
+
+@{
+    ViewBag.Title = "Teste";
+    //codigo
+}
+
+@* Documento do codigo *@
+
+<div>@Html.Raw(ViewBag.Ola)</div>
+
+@{
+    foreach (var cliente in Model)  {
+        <div>@Html.Hidden("Id", cliente.Id)</div>
+        <div>@Html.Label("txtNome", "Nome: ", new {text = "Nome", @class = "control-label col-md-2"})</div>
+        <div>
+            @Html.TextBox("txtNome", cliente.Nome)
+            @Html.TextBoxFor(model => cliente.Nome)
+            @Html.EditorFor(model => cliente.Nome)
+        </div>
+        <div>
+            @Html.TextArea("txtNome2", new {rows = 5})
+        </div>
+        <div>
+            @Html.ActionLink("Clique aqui", "Edit", new {cliente.Id})
+        </div>
+        @*@Html.Action("Edit", "Clientes", new {cliente.Id}) *@
+        <div>@Html.LabelFor(model => cliente.Nome)</div>
+        <div>@Html.DisplayFor(model => cliente.Nome)</div>
+        <div>
+            @Html.RadioButton("corFavorita", "Azul", true) Azul
+            @Html.RadioButton("corFavorita", "Amarelo", false) Amarelo
+            @Html.RadioButton("corFavorita", "Preto", false) Preto
+        </div>
+        <div>
+            @Html.ListBox("ListaCores", 
+                new SelectList(
+                    new List<string>()
+                    {
+                        "Azul",
+                        "Amarelo",
+                        "Verde"
+                    }
+                    ))
+        </div>
+        <div>
+            @Html.DropDownList("DropListCores", new SelectList(
+                new List<string>()
+                {
+                    "Azul",
+                    "Amarelo",
+                    "Verde"
+                }
+                ))
+        </div>
+        <div>
+            @Html.DropDownListFor(c => cliente.Nome, new SelectList(Model, "Id", "Nome"))
+        </div>
+        <div>
+            @Html.DropDownList("Id", String.Empty)
+        </div>
+        <div>
+            @Html.CheckBox("Certificado", false) Desejo receber Certificado
+        </div>
+        <div>
+            @{
+                var teste = Html.Partial("_Saudacao");
+            }
+            @teste
+        </div>
+        <div>
+            <a href="@Url.Action("Index", "Home")">Clique aqui</a>
+        </div>
+    }
+}
