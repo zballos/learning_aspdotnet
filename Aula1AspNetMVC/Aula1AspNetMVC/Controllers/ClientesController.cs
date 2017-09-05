@@ -60,6 +60,12 @@ namespace Aula1AspNetMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!cliente.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty, "Email não pode ser internacional!");
+                    return View(cliente);
+                }
+
                 cliente.DataCadastro = DateTime.Now;
                 db.Cliente.Add(cliente);
                 db.SaveChanges();
