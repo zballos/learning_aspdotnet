@@ -95,10 +95,16 @@ namespace Aula1AspNetMVC.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,SobreNome,DataCadastro")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,Nome,SobreNome,DataCadastro,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                if (!cliente.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty, "Email não pode ser internacional!");
+                    return View(cliente);
+                }
+
                 db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
