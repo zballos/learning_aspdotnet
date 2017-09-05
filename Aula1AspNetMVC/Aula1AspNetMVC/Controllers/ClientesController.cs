@@ -56,10 +56,11 @@ namespace Aula1AspNetMVC.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,SobreNome,DataCadastro")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,Nome,SobreNome,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                cliente.DataCadastro = DateTime.Now;
                 db.Cliente.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
