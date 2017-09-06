@@ -15,6 +15,22 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
+        [OutputCache(Duration = 30, VaryByParam = "*")]
+        //[ValidateInput(false)]
+        public ContentResult TesteFilters(int id)
+        {
+            return Content(DateTime.Now.ToString());
+        }
+
+        public ActionResult TesteJson()
+        {
+            // Retorna o conteudo em JSON
+            return Json(db.Cliente.ToList(), JsonRequestBehavior.AllowGet);
+
+            // Retorna Javascript
+            //return JavaScript("<script>alert('Oi!');</script>");
+        }
+
         public ActionResult Teste()
         {
             ViewBag.Ola = "<h2>Olá!</h2>";
@@ -56,10 +72,17 @@ namespace Aula1AspNetMVC.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,SobreNome,DataCadastro")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,Nome,SobreNome,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                if (!cliente.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty, "Email não pode ser internacional!");
+                    return View(cliente);
+                }
+
+                cliente.DataCadastro = DateTime.Now;
                 db.Cliente.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -88,10 +111,16 @@ namespace Aula1AspNetMVC.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,SobreNome,DataCadastro")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,Nome,SobreNome,DataCadastro,Email")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                if (!cliente.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty, "Email não pode ser internacional!");
+                    return View(cliente);
+                }
+
                 db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
