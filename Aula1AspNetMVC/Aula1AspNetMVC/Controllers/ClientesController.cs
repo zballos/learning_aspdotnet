@@ -15,6 +15,22 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
+        [OutputCache(Duration = 30, VaryByParam = "*")]
+        //[ValidateInput(false)]
+        public ContentResult TesteFilters(int id)
+        {
+            return Content(DateTime.Now.ToString());
+        }
+
+        public ActionResult TesteJson()
+        {
+            // Retorna o conteudo em JSON
+            return Json(db.Cliente.ToList(), JsonRequestBehavior.AllowGet);
+
+            // Retorna Javascript
+            //return JavaScript("<script>alert('Oi!');</script>");
+        }
+
         public ActionResult Teste()
         {
             ViewBag.Ola = "<h2>Olá!</h2>";
