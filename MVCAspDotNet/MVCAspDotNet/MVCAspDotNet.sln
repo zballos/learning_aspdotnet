@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{B624D87F-36AE-481D-95CA-913911E6A3E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.UI.MVC", "src\EZ.MvcDotNet.UI.MVC\EZ.MvcDotNet.UI.MVC.csproj", "{9FF431A7-00A1-45DD-8343-87770E904590}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{EC1E34FA-F5A2-4563-9A7B-163B6E9D8A94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{32199BCD-2C70-4F7C-969C-B1B3329C100E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0243AB88-50E3-44C5-9D7F-5F7CAF4E35AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{AC5B3227-99CD-46BA-AB09-02E4789FF2B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Domain", "src\EZ.MvcDotNet.Domain\EZ.MvcDotNet.Domain.csproj", "{CD29DC45-E55E-4061-B257-8943AE38F801}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FF431A7-00A1-45DD-8343-87770E904590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF431A7-00A1-45DD-8343-87770E904590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF431A7-00A1-45DD-8343-87770E904590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF431A7-00A1-45DD-8343-87770E904590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD29DC45-E55E-4061-B257-8943AE38F801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD29DC45-E55E-4061-B257-8943AE38F801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD29DC45-E55E-4061-B257-8943AE38F801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD29DC45-E55E-4061-B257-8943AE38F801}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FF431A7-00A1-45DD-8343-87770E904590} = {B624D87F-36AE-481D-95CA-913911E6A3E5}
+		{CD29DC45-E55E-4061-B257-8943AE38F801} = {0243AB88-50E3-44C5-9D7F-5F7CAF4E35AD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABC82F8E-991F-4FD5-8943-7F102FFB9D0C}
+	EndGlobalSection
+EndGlobal
