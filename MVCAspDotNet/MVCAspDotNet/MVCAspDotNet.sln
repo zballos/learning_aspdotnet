@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Domain", "src\EZ.MvcDotNet.Domain\EZ.MvcDotNet.Domain.csproj", "{CD29DC45-E55E-4061-B257-8943AE38F801}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{A15025DB-CBE0-43FA-A077-33D2E6A409C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Infra.Data", "src\EZ.MvcDotNet.Infra.Data\EZ.MvcDotNet.Infra.Data.csproj", "{2462D586-FFE4-45B7-97D0-EA83E366BF6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{CD29DC45-E55E-4061-B257-8943AE38F801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD29DC45-E55E-4061-B257-8943AE38F801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD29DC45-E55E-4061-B257-8943AE38F801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2462D586-FFE4-45B7-97D0-EA83E366BF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2462D586-FFE4-45B7-97D0-EA83E366BF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2462D586-FFE4-45B7-97D0-EA83E366BF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2462D586-FFE4-45B7-97D0-EA83E366BF6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +46,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9FF431A7-00A1-45DD-8343-87770E904590} = {B624D87F-36AE-481D-95CA-913911E6A3E5}
 		{CD29DC45-E55E-4061-B257-8943AE38F801} = {0243AB88-50E3-44C5-9D7F-5F7CAF4E35AD}
+		{A15025DB-CBE0-43FA-A077-33D2E6A409C2} = {AC5B3227-99CD-46BA-AB09-02E4789FF2B2}
+		{2462D586-FFE4-45B7-97D0-EA83E366BF6A} = {A15025DB-CBE0-43FA-A077-33D2E6A409C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABC82F8E-991F-4FD5-8943-7F102FFB9D0C}
