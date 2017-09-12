@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using EZ.MvcDotNet.Domain.Entities;
+using EZ.MvcDotNet.Infra.Data.EntityConfig;
 
 namespace EZ.MvcDotNet.Infra.Data.Context
 {
@@ -32,8 +33,10 @@ namespace EZ.MvcDotNet.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
+            modelBuilder.Configurations.Add(new ClienteConfiguration());
+            modelBuilder.Configurations.Add(new EnderecoConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }
