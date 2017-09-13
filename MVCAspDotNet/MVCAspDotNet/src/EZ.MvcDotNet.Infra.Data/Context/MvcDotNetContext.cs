@@ -5,7 +5,7 @@ using EZ.MvcDotNet.Infra.Data.EntityConfig;
 
 namespace EZ.MvcDotNet.Infra.Data.Context
 {
-    class MvcDotNetContext : DbContext
+    public class MvcDotNetContext : DbContext
     {
         public MvcDotNetContext()
             : base("MvcDotNetContext")
