@@ -1,11 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 using EZ.MvcDotNet.Domain.Entities;
 using EZ.MvcDotNet.Infra.Data.EntityConfig;
 
 namespace EZ.MvcDotNet.Infra.Data.Context
 {
-    class MvcDotNetContext : DbContext
+    public class MvcDotNetContext : DbContext
     {
         public MvcDotNetContext()
             : base("MvcDotNetContext")
@@ -37,6 +39,24 @@ namespace EZ.MvcDotNet.Infra.Data.Context
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }
+
+            return base.SaveChanges();
         }
     }
 }
