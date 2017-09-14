@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using EZ.MvcDotNet.Application.ViewModels;
 using EZ.MvcDotNet.Domain.Entities;
 
 namespace EZ.MvcDotNet.Application.Interface
 {
     public interface IClienteAppService : IDisposable
     {
-        void Adicionar(Cliente obj);
+        void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel);
 
-        Cliente ObterPorId(Guid id);
+        ClienteViewModel ObterPorId(Guid id);
 
-        IEnumerable<Cliente> ObterTodos();
+        IEnumerable<ClienteViewModel> ObterTodos();
 
-        void Atualizar(Cliente obj);
+        void Atualizar(ClienteViewModel clienteViewModel);
 
         void Remover(Guid id);
 
-        Cliente ObterPorCPF(string cpf);
+        ClienteViewModel ObterPorCPF(string cpf);
 
-        Cliente ObterPorEmail(string email);
+        ClienteViewModel ObterPorEmail(string email);
     }
 }
