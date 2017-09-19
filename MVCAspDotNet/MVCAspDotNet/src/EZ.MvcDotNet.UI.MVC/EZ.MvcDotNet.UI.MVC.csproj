@@ -287,6 +287,10 @@
       <Project>{69e9b807-931b-40f4-9ba3-230698460b44}</Project>
       <Name>EZ.MvcDotNet.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EZ.MvcDotNet.Infra.CrossCutting.MvcFilters\EZ.MvcDotNet.Infra.CrossCutting.MvcFilters.csproj">
+      <Project>{94CD9E6A-4279-46BA-B7DA-FDA5E936D871}</Project>
+      <Name>EZ.MvcDotNet.Infra.CrossCutting.MvcFilters</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

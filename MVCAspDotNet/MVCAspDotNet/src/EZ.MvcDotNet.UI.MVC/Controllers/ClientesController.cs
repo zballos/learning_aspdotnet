@@ -8,10 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using EZ.MvcDotNet.Application;
 using EZ.MvcDotNet.Application.ViewModels;
+using EZ.MvcDotNet.Infra.CrossCutting.MvcFilters;
 using EZ.MvcDotNet.UI.MVC.Models;
 
 namespace EZ.MvcDotNet.UI.MVC.Controllers
 {
+    //[GlobalErrorHandler]
     public class ClientesController : Controller
     {
         private readonly ClienteAppService _clienteAppService = new ClienteAppService();
