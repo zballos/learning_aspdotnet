@@ -8,6 +8,7 @@ namespace EZ.MvcDotNet.Domain.Entities
         public Cliente()
         {
             ClienteId = Guid.NewGuid();
+            Enderecos = new List<Endereco>();
         }
 
         public Guid ClienteId { get; set; }

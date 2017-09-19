@@ -8,8 +8,8 @@ namespace EZ.MvcDotNet.Application.ViewModels
     {
         public ClienteEnderecoViewModel()
         {
-            ClienteId = new Guid();
-            EnderecoId = new Guid();
+            ClienteId = Guid.NewGuid();
+            EnderecoId = Guid.NewGuid();
         }
 
         // Cliente

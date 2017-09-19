@@ -6,17 +6,17 @@ namespace EZ.MvcDotNet.Application.AutoMapper
 {
     public class ViewModelToDomainMappingProfile : Profile
     {
-        public override string ProfileName
+        /*public override string ProfileName
         {
             get { return "ViewModelToDomainMappings"; }
-        }
+        }*/
 
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<ClienteViewModel, Cliente>();
             CreateMap<ClienteEnderecoViewModel, Cliente>();
-            CreateMap<ClienteEnderecoViewModel, Endereco>();
             CreateMap<EnderecoViewModel, Endereco>();
+            CreateMap<ClienteEnderecoViewModel, Endereco>();
         }
     }
 }

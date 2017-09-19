@@ -16,7 +16,7 @@ namespace EZ.MvcDotNet.Application
         {
             var cliente = Mapper.Map<ClienteEnderecoViewModel, Cliente>(clienteEnderecoViewModel);
             var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
-
+            
             cliente.Enderecos.Add(endereco);
 
             _clienteRepository.Adicionar(cliente);

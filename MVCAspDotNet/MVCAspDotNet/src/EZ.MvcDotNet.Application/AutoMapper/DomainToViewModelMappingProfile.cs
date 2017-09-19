@@ -6,10 +6,10 @@ namespace EZ.MvcDotNet.Application.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {
-        public override string ProfileName
+        /*public override string ProfileName
         {
             get { return "DomainToViewModelMappings"; }
-        }
+        }*/
 
         public DomainToViewModelMappingProfile()
         {
