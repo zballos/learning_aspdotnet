@@ -21,7 +21,7 @@ namespace EZ.MvcDotNet.UI.MVC.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MvcDotNetContext", throwIfV1Schema: false)
         {
         }
 
