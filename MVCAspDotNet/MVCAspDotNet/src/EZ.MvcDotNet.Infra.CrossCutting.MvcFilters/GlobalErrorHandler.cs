@@ -11,6 +11,12 @@ namespace EZ.MvcDotNet.Infra.CrossCutting.MvcFilters
 
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
+            // Grava Log
+
+            if (filterContext.Exception != null)
+            {
+                filterContext.Controller.TempData["ErrorMessage"] = filterContext.Exception.Message;
+            }
             base.OnActionExecuted(filterContext);
         }
 
