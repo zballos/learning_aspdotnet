@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 -
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Infra.CrossCutting.MvcFilters", "src\EZ.MvcDotNet.Infra.CrossCutting.MvcFilters\EZ.MvcDotNet.Infra.CrossCutting.MvcFilters.csproj", "{94CD9E6A-4279-46BA-B7DA-FDA5E936D871}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Infra.CrossCutting.IoC", "src\EZ.MvcDotNet.Infra.CrossCutting.IoC\EZ.MvcDotNet.Infra.CrossCutting.IoC.csproj", "{24ED9D2A-DD6C-4502-9022-51922C062FED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{94CD9E6A-4279-46BA-B7DA-FDA5E936D871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94CD9E6A-4279-46BA-B7DA-FDA5E936D871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94CD9E6A-4279-46BA-B7DA-FDA5E936D871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24ED9D2A-DD6C-4502-9022-51922C062FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24ED9D2A-DD6C-4502-9022-51922C062FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24ED9D2A-DD6C-4502-9022-51922C062FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24ED9D2A-DD6C-4502-9022-51922C062FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{69E9B807-931B-40F4-9BA3-230698460B44} = {32199BCD-2C70-4F7C-969C-B1B3329C100E}
 		{AA60C26E-B7AE-4A54-984C-2068058CDC76} = {AC5B3227-99CD-46BA-AB09-02E4789FF2B2}
 		{94CD9E6A-4279-46BA-B7DA-FDA5E936D871} = {AA60C26E-B7AE-4A54-984C-2068058CDC76}
+		{24ED9D2A-DD6C-4502-9022-51922C062FED} = {AA60C26E-B7AE-4A54-984C-2068058CDC76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABC82F8E-991F-4FD5-8943-7F102FFB9D0C}

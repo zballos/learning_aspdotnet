@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using EZ.MvcDotNet.Application;
+using EZ.MvcDotNet.Application.Interface;
 using EZ.MvcDotNet.Application.ViewModels;
-using EZ.MvcDotNet.Infra.CrossCutting.MvcFilters;
-using EZ.MvcDotNet.UI.MVC.Models;
 
 namespace EZ.MvcDotNet.UI.MVC.Controllers
 {
     //[GlobalErrorHandler]
     public class ClientesController : Controller
     {
-        private readonly ClienteAppService _clienteAppService = new ClienteAppService();
+        private readonly IClienteAppService _clienteAppService;
+
+        public ClientesController(IClienteAppService clienteAppService)
+        {
+            _clienteAppService = clienteAppService;
+        }
 
         // GET: Clientes
         public ActionResult Index()
