@@ -8,7 +8,7 @@ using EZ.MvcDotNet.Domain.Interfaces.Services;
 
 namespace EZ.MvcDotNet.Application
 {
-    public class ClienteAppService : IClienteAppService
+    public class ClienteAppService : AppService, IClienteAppService
     {
         private readonly IClienteService _clienteService;
 
@@ -21,10 +21,15 @@ namespace EZ.MvcDotNet.Application
         {
             var cliente = Mapper.Map<ClienteEnderecoViewModel, Cliente>(clienteEnderecoViewModel);
             var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
-            
+
             cliente.Enderecos.Add(endereco);
 
+            BeginTransaction();
+
             _clienteService.Adicionar(cliente);
+
+            // Toma decisão do commit
+            Commit();
         }
 
         public void Atualizar(ClienteViewModel clienteViewModel)
