@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
-    <Compile Include="NinjectModule.cs" />
+    <Compile Include="NinjectAppModulo.cs" />
+    <Compile Include="NinjectModulo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
