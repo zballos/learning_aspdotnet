@@ -4,13 +4,18 @@ using AutoMapper;
 using EZ.MvcDotNet.Application.Interface;
 using EZ.MvcDotNet.Application.ViewModels;
 using EZ.MvcDotNet.Domain.Entities;
-using EZ.MvcDotNet.Infra.Data.Repository;
+using EZ.MvcDotNet.Domain.Interfaces.Services;
 
 namespace EZ.MvcDotNet.Application
 {
     public class ClienteAppService : IClienteAppService
     {
-        private readonly ClienteRepository _clienteRepository = new ClienteRepository();
+        private readonly IClienteService _clienteService;
+
+        public ClienteAppService(IClienteService clienteService)
+        {
+            _clienteService = clienteService;
+        }
 
         public void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
@@ -19,44 +24,44 @@ namespace EZ.MvcDotNet.Application
             
             cliente.Enderecos.Add(endereco);
 
-            _clienteRepository.Adicionar(cliente);
+            _clienteService.Adicionar(cliente);
         }
 
         public void Atualizar(ClienteViewModel clienteViewModel)
         {
             var cliente = Mapper.Map<ClienteViewModel, Cliente>(clienteViewModel);
 
-            _clienteRepository.Atualizar(cliente);
+            _clienteService.Atualizar(cliente);
         }
 
         public ClienteViewModel ObterPorCPF(string cpf)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteRepository.ObterPorCPF(cpf));
+            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorCPF(cpf));
         }
 
         public ClienteViewModel ObterPorEmail(string email)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteRepository.ObterPorEmail(email));
+            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorEmail(email));
         }
 
         public ClienteViewModel ObterPorId(Guid id)
         {
-            return Mapper.Map<Cliente, ClienteViewModel>(_clienteRepository.ObterPorId(id));
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteService.ObterPorId(id));
         }
 
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
-            return Mapper.Map < IEnumerable<Cliente>, IEnumerable<ClienteViewModel> > (_clienteRepository.ObterTodos());
+            return Mapper.Map < IEnumerable<Cliente>, IEnumerable<ClienteViewModel> > (_clienteService.ObterTodos());
         }
 
         public void Remover(Guid id)
         {
-            _clienteRepository.Remover(id);
+            _clienteService.Remover(id);
         }
 
         public void Dispose()
         {
-            _clienteRepository.Dispose();
+            _clienteService.Dispose();
             GC.SuppressFinalize(this);
         }
     }
