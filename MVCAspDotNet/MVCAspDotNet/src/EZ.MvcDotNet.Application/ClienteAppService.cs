@@ -41,12 +41,12 @@ namespace EZ.MvcDotNet.Application
 
         public ClienteViewModel ObterPorCPF(string cpf)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorCPF(cpf));
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteService.ObterPorCPF(cpf));
         }
 
         public ClienteViewModel ObterPorEmail(string email)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorEmail(email));
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteService.ObterPorEmail(email));
         }
 
         public ClienteViewModel ObterPorId(Guid id)
@@ -56,7 +56,7 @@ namespace EZ.MvcDotNet.Application
 
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
-            return Mapper.Map < IEnumerable<Cliente>, IEnumerable<ClienteViewModel> > (_clienteService.ObterTodos());
+            return Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteService.ObterTodos());
         }
 
         public void Remover(Guid id)
