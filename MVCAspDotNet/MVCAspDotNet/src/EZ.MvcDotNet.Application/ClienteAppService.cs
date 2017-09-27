@@ -8,7 +8,7 @@ using EZ.MvcDotNet.Domain.Interfaces.Services;
 
 namespace EZ.MvcDotNet.Application
 {
-    public class ClienteAppService : IClienteAppService
+    public class ClienteAppService : AppService, IClienteAppService
     {
         private readonly IClienteService _clienteService;
 
@@ -21,10 +21,15 @@ namespace EZ.MvcDotNet.Application
         {
             var cliente = Mapper.Map<ClienteEnderecoViewModel, Cliente>(clienteEnderecoViewModel);
             var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
-            
+
             cliente.Enderecos.Add(endereco);
 
+            BeginTransaction();
+
             _clienteService.Adicionar(cliente);
+
+            // Toma decisão do commit
+            Commit();
         }
 
         public void Atualizar(ClienteViewModel clienteViewModel)
@@ -36,12 +41,12 @@ namespace EZ.MvcDotNet.Application
 
         public ClienteViewModel ObterPorCPF(string cpf)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorCPF(cpf));
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteService.ObterPorCPF(cpf));
         }
 
         public ClienteViewModel ObterPorEmail(string email)
         {
-            return Mapper.Map < Cliente, ClienteViewModel > (_clienteService.ObterPorEmail(email));
+            return Mapper.Map<Cliente, ClienteViewModel>(_clienteService.ObterPorEmail(email));
         }
 
         public ClienteViewModel ObterPorId(Guid id)
@@ -51,7 +56,7 @@ namespace EZ.MvcDotNet.Application
 
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
-            return Mapper.Map < IEnumerable<Cliente>, IEnumerable<ClienteViewModel> > (_clienteService.ObterTodos());
+            return Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteService.ObterTodos());
         }
 
         public void Remover(Guid id)

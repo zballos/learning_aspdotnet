@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using EZ.MvcDotNet.Application.ViewModels;
-using EZ.MvcDotNet.Domain.Entities;
 
 namespace EZ.MvcDotNet.Application.Interface
 {
