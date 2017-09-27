@@ -5,6 +5,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using EZ.MvcDotNet.Domain.Interfaces.Repository;
 using EZ.MvcDotNet.Infra.Data.Context;
+using EZ.MvcDotNet.Infra.Data.Interfaces;
+using Microsoft.Practices.ServiceLocation;
 
 namespace EZ.MvcDotNet.Infra.Data.Repository
 {
@@ -15,14 +17,15 @@ namespace EZ.MvcDotNet.Infra.Data.Repository
 
         public Repository()
         {
-            Db = new MvcDotNetContext();
+            var contextManager = ServiceLocator.Current.GetInstance<IContextManager>();
+            Db = contextManager.GetContext();
             DbSet = Db.Set<TEntity>();
         }
 
         public virtual void Adicionar(TEntity obj)
         {
             DbSet.Add(obj);
-            SaveChanges();
+            //SaveChanges();
         }
 
         public virtual TEntity ObterPorId(Guid id)
@@ -48,13 +51,13 @@ namespace EZ.MvcDotNet.Infra.Data.Repository
             var entry = Db.Entry(obj);
             DbSet.Attach(obj);
             entry.State = EntityState.Modified; // encontra as diferenças do objeto
-            SaveChanges();
+            //SaveChanges();
         }
 
         public virtual void Remover(Guid id)
         {
             DbSet.Remove(ObterPorId(id));
-            SaveChanges();
+            //SaveChanges();
         }
 
         public virtual IEnumerable<TEntity> Buscar(Expression<Func<TEntity, bool>> predicate)
