@@ -6,7 +6,7 @@ namespace EZ.MvcDotNet.Domain.Interfaces.Services
 {
     public interface IClienteService : IDisposable
     {
-        void Adicionar(Cliente cliente);
+        Cliente Adicionar(Cliente cliente);
 
         Cliente ObterPorId(Guid id);
 

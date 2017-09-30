@@ -43,10 +43,13 @@
     <Compile Include="Interfaces\Services\IClienteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Specification\Clientes\ClienteDevePossuirCpfUnicoSpecification.cs" />
     <Compile Include="Specification\Clientes\ClienteDevePossuirCpfValidoSpecification.cs" />
+    <Compile Include="Specification\Clientes\ClienteDevePossuirEmailUnicoSpecification.cs" />
     <Compile Include="Specification\Clientes\ClienteDevePossuirEmailValidoSpecification.cs" />
     <Compile Include="Specification\Clientes\ClienteDevePossuirUmEnderecoSpecification.cs" />
     <Compile Include="Specification\Clientes\ClienteDeveSerMaiorDeIdadeSpecification.cs" />
+    <Compile Include="Validation\Clientes\ClienteAptoParaInclusaoValidation.cs" />
     <Compile Include="Validation\Clientes\ClienteEstaConsistenteValidation.cs" />
     <Compile Include="Validation\Documentos\CPFValidation.cs" />
     <Compile Include="Validation\Email\EmailValidation.cs" />

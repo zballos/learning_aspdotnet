@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EZ.MvcDotNet.Domain.Entities;
 using EZ.MvcDotNet.Domain.Interfaces.Repository;
 using EZ.MvcDotNet.Domain.Interfaces.Services;
+using EZ.MvcDotNet.Domain.Validation.Clientes;
 
 namespace EZ.MvcDotNet.Domain.Services
 {
@@ -14,9 +15,24 @@ namespace EZ.MvcDotNet.Domain.Services
         {
             _clienteRepository = clienteRepository;
         }
-        public void Adicionar(Cliente cliente)
+
+        public Cliente Adicionar(Cliente cliente)
         {
+            if (!cliente.IsValid())
+            {
+                return cliente;
+            }
+
+            var result = new ClienteAptoParaInclusaoValidation(_clienteRepository).Validate(cliente);
+            if (!result.IsValid)
+            {
+                cliente.ValidationResult = result;
+                return cliente;
+            }
+
             _clienteRepository.Adicionar(cliente);
+
+            return cliente;
         }
 
         public Cliente ObterPorId(Guid id)
