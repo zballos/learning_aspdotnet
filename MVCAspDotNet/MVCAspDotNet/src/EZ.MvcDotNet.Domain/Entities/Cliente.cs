@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using DomainValidation.Interfaces.Validation;
+using DomainValidation.Validation;
+using EZ.MvcDotNet.Domain.Validation.Clientes;
 
 namespace EZ.MvcDotNet.Domain.Entities
 {
-    public class Cliente
+    public class Cliente : ISelfValidator
     {
         public Cliente()
         {
@@ -20,5 +23,12 @@ namespace EZ.MvcDotNet.Domain.Entities
         public bool Ativo { get; set; }
         public virtual ICollection<Endereco> Enderecos { get; set; }
 
+        public bool IsValid()
+        {
+            ValidationResult = new ClienteEstaConsistenteValidation().Validate(this);
+            return ValidationResult.IsValid;
+        }
+
+        public ValidationResult ValidationResult { get; set; }
     }
 }

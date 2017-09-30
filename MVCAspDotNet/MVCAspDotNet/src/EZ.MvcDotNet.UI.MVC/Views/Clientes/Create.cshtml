@@ -14,7 +14,18 @@
     <div class="form-horizontal">
         <h4>ClienteViewModel</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+            // TODO: CRIAR UM HELPER
+        {
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <h3>Ops! Alguma coisa não deu certo:</h3>
+                @Html.ValidationSummary(true)
+            </div>
+        }
+
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

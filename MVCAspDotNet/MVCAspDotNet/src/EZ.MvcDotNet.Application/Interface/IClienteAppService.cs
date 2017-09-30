@@ -6,7 +6,7 @@ namespace EZ.MvcDotNet.Application.Interface
 {
     public interface IClienteAppService : IDisposable
     {
-        void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel);
+        ClienteViewModel Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel);
 
         ClienteViewModel ObterPorId(Guid id);
 

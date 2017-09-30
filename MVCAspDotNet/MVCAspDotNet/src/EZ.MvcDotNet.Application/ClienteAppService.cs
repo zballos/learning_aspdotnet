@@ -17,7 +17,7 @@ namespace EZ.MvcDotNet.Application
             _clienteService = clienteService;
         }
 
-        public void Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
+        public ClienteViewModel Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
             var cliente = Mapper.Map<ClienteEnderecoViewModel, Cliente>(clienteEnderecoViewModel);
             var endereco = Mapper.Map<ClienteEnderecoViewModel, Endereco>(clienteEnderecoViewModel);
@@ -26,10 +26,16 @@ namespace EZ.MvcDotNet.Application
 
             BeginTransaction();
 
-            _clienteService.Adicionar(cliente);
+            var clienteReturn = _clienteService.Adicionar(cliente);
+            var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(clienteReturn);
 
-            // Toma decisão do commit
+            if (!clienteReturn.ValidationResult.IsValid)
+            {
+                return clienteViewModel;
+            }
+
             Commit();
+            return clienteViewModel;
         }
 
         public void Atualizar(ClienteViewModel clienteViewModel)
