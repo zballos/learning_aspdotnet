@@ -31,6 +31,8 @@ namespace EZ.MvcDotNet.Infra.Data.EntityConfig
             Property(c => c.Ativo)
                 .IsRequired();
 
+            Ignore(c => c.ValidationResult);
+
             ToTable("Clientes");
         }
     }
