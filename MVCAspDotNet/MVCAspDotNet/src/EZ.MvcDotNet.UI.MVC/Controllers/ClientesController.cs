@@ -52,8 +52,14 @@ namespace EZ.MvcDotNet.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _clienteAppService.Adicionar(clienteEnderecoViewModel);
-                return RedirectToAction("Index");
+                var clienteViewModel = _clienteAppService.Adicionar(clienteEnderecoViewModel);
+                if (clienteViewModel.ValidationResult.IsValid) return RedirectToAction("Index");
+
+                foreach (var erro in clienteViewModel.ValidationResult.Erros)
+                {
+                    ModelState.AddModelError(string.Empty, erro.Message);
+                }
+                return View(clienteEnderecoViewModel);
             }
 
             return View(clienteEnderecoViewModel);
