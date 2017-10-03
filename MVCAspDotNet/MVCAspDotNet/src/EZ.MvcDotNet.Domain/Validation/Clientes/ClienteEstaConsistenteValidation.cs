@@ -12,9 +12,9 @@ namespace EZ.MvcDotNet.Domain.Validation.Clientes
             var clienteEmail = new ClienteDevePossuirEmailValidoSpecification();
             var clienteMaiorIdade = new ClienteDeveSerMaiorDeIdadeSpecification();
 
-            base.Add("clienteCPF", new Rule<Cliente>(clienteCPF, "Cliente informou um CPF inválido!"));
-            base.Add("clienteEmail", new Rule<Cliente>(clienteEmail, "Cliente informou um Email inválido!"));
-            base.Add("clienteMaiorIdade", new Rule<Cliente>(clienteMaiorIdade, "Cliente não tem maioridade para cadastro!"));
+            base.Add("clienteCPF", new Rule<Cliente>(clienteCPF, "Cliente informou um CPF inválido."));
+            base.Add("clienteEmail", new Rule<Cliente>(clienteEmail, "Cliente informou um Email inválido."));
+            base.Add("clienteMaiorIdade", new Rule<Cliente>(clienteMaiorIdade, "Cliente não tem maioridade para cadastro."));
         }
 
         
