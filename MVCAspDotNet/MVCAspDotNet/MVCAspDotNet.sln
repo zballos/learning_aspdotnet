@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Infra.CrossCut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Domain.Tests", "tests\EZ.MvcDotNet.Domain.Tests\EZ.MvcDotNet.Domain.Tests.csproj", "{6059D476-266D-4F8B-ADDF-AAC7E163EA86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZ.MvcDotNet.Infra.CrossCutting.Identity", "src\EZ.MvcDotNet.Infra.CrossCutting.Identity\EZ.MvcDotNet.Infra.CrossCutting.Identity.csproj", "{81381E90-834C-4CC6-8E96-23F78BC3423E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{6059D476-266D-4F8B-ADDF-AAC7E163EA86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6059D476-266D-4F8B-ADDF-AAC7E163EA86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6059D476-266D-4F8B-ADDF-AAC7E163EA86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81381E90-834C-4CC6-8E96-23F78BC3423E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81381E90-834C-4CC6-8E96-23F78BC3423E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81381E90-834C-4CC6-8E96-23F78BC3423E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81381E90-834C-4CC6-8E96-23F78BC3423E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{94CD9E6A-4279-46BA-B7DA-FDA5E936D871} = {AA60C26E-B7AE-4A54-984C-2068058CDC76}
 		{24ED9D2A-DD6C-4502-9022-51922C062FED} = {AA60C26E-B7AE-4A54-984C-2068058CDC76}
 		{6059D476-266D-4F8B-ADDF-AAC7E163EA86} = {0243AB88-50E3-44C5-9D7F-5F7CAF4E35AD}
+		{81381E90-834C-4CC6-8E96-23F78BC3423E} = {AA60C26E-B7AE-4A54-984C-2068058CDC76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABC82F8E-991F-4FD5-8943-7F102FFB9D0C}
